@@ -1,2 +1,4 @@
-﻿  main.cpp
+﻿  Game.cpp
+  main.cpp
+  Generating Code...
   SDL_FirstProject.vcxproj -> C:\SDL\SDL_HW\SDL_FirstProject\x64\Debug\SDL_FirstProject.exe

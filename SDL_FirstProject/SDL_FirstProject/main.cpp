@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include "Game.h"
 
 
 int main(int arc, char* argv[])
@@ -12,6 +13,12 @@ int main(int arc, char* argv[])
 	SDL_RenderPresent(renderer);
 	SDL_Delay(3000);
 	//SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Hello World", "Successful", NULL);
+	while (true)//game is running
+	{
+		//handle any user input
+		//update all objects
+		//render changes to display
 
+	}
 	return 0;
 }
