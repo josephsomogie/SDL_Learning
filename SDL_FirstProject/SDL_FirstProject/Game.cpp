@@ -1,7 +1,10 @@
 #include "Game.h"
+#include "TextureManager.h"
+#include "GameObject.h"
 
-SDL_Texture* playerTex;
-SDL_Rect  srcR, destR;
+
+
+GameObject* player;
 
 Game::Game() {
 	isRunning = false;
@@ -33,10 +36,8 @@ void Game::init(const char* title, int xPos, int yPos, int width, int height, bo
 
 	} else {
 		isRunning = false; }
-
-	SDL_Surface* tmpSurface = IMG_Load("assets/fella.png");
-	playerTex = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-	SDL_FreeSurface(tmpSurface);
+	player = new GameObject("assets/fella.png", renderer);
+	
 
 }
 void Game::handleEvents() {
@@ -55,9 +56,20 @@ void Game::handleEvents() {
 }
 void Game::update() {
 	frameRate++;
-	destR.h = 400;
+	/*destR.h = 400;
 	destR.w = 400;
-	destR.x = frameRate/20;
+	static bool right = true;
+	if (destR.x < 590 && right) {
+		destR.x++;
+	}
+	else if (destR.x > 10 && !right) {
+		destR.x--;
+	}
+	else
+		right = !right;*/
+
+	player->Update();
+
 	
 
 
@@ -65,7 +77,7 @@ void Game::update() {
 }
 void Game::render() {
 	SDL_RenderClear(renderer);
-	SDL_RenderCopy(renderer, playerTex, NULL, &destR);
+	player->Render();
 	SDL_RenderPresent(renderer);
 
 }
